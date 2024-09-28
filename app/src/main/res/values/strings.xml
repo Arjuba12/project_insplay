@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ProjectInsplayJava</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login_btn_text">Login</string>
+    <string name="signup_btn_text">Sign Up</string>
+    <string name="INSPLAY">INSPLAY</string>
+    <string name="forgot_password">Forgot Password?</string>
+
+</resources>
