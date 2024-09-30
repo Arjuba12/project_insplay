@@ -6,5 +6,10 @@
     <string name="signup_btn_text">Sign Up</string>
     <string name="INSPLAY">INSPLAY</string>
     <string name="forgot_password">Forgot Password?</string>
+    <string name="get_started">Get Started</string>
+    <string name="header_1">Selamat Datang</string>
+    <string name="paragrap_1">Selamat datang di applikasi INSPLAY</string>
+    <string name="line_2">Insplay</string>
+    <string name="line_3">Nikmati Music favoritmu dengan kami</string>
 
 </resources>
