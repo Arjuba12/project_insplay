@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".Login">
 
     <LinearLayout
@@ -16,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.7"
-            android:background="@drawable/background"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,6 +30,7 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="32dp"
+                    android:autofillHints="password"
                     android:background="@drawable/background_edittext"
                     android:ems="10"
                     android:hint="@string/password_hint"
@@ -38,20 +39,19 @@
                     android:paddingRight="10dp"
                     android:textColor="#ffffffff"
                     android:textColorHint="#ffffffff"
-                    android:autofillHints="password"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/email_form" />
 
                 <EditText
-                    android:autofillHints="email"
                     android:id="@+id/email_form"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="64dp"
+                    android:layout_marginTop="36dp"
                     android:layout_marginEnd="32dp"
+                    android:autofillHints="email"
                     android:background="@drawable/background_edittext"
                     android:ems="10"
                     android:hint="@string/email_hint"
@@ -61,33 +61,22 @@
                     android:textColor="#ffffffff"
                     android:textColorHint="#ffffffff"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/logo" />
-
-                <TextView
-                    android:id="@+id/logo_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/INSPLAY"
-                    android:textColor="@color/material_dynamic_tertiary60"
-                    android:textSize="34sp"
-                    app:layout_constraintEnd_toEndOf="@id/logo"
-                    app:layout_constraintHorizontal_bias="0.492"
-                    app:layout_constraintStart_toStartOf="@id/logo"
                     app:layout_constraintTop_toBottomOf="@id/logo" />
 
                 <ImageView
-                    android:contentDescription="@string/INSPLAY"
                     android:id="@+id/logo"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="100dp"
-                    android:src="@drawable/img"
+                    android:layout_width="230dp"
+                    android:layout_height="181dp"
+                    android:layout_marginTop="68dp"
+                    android:contentDescription="@string/INSPLAY"
+                    android:src="@drawable/insplay_logo"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@mipmap/img" />
+                    tools:srcCompat="@mipmap/insplay_logo" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
@@ -116,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:text="@string/forgot_password"/>
+                android:text="@string/forgot_password" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
