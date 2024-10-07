@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "893769623735",
+    "firebase_url": "https://proj-insplay-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "proj-insplay",
+    "storage_bucket": "proj-insplay.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893769623735:android:0628251728cd8ad0a10532",
+        "android_client_info": {
+          "package_name": "com.example.proj_insplay"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP4BcYJ8nnmi03FFPeDz8PwpIk0fE_Hsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893769623735:android:b9d0be84cba17279a10532",
+        "android_client_info": {
+          "package_name": "com.example.projectinsplayjava"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP4BcYJ8nnmi03FFPeDz8PwpIk0fE_Hsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

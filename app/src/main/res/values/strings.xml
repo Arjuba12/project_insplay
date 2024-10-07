@@ -11,5 +11,8 @@
     <string name="paragrap_1">Selamat datang di applikasi INSPLAY</string>
     <string name="line_2">Insplay</string>
     <string name="line_3">Nikmati Music favoritmu dengan kami</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="img_btn_description">Bagian gambar</string>
 
 </resources>

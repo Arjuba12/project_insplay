@@ -1,4 +1,4 @@
-package com.example.projectinsplayjava;
+package com.example.projectinsplayjava.activity;
 
 import static com.example.projectinsplayjava.R.layout.activity_login;
 
@@ -13,10 +13,11 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.projectinsplayjava.R;
 
 public class Login extends AppCompatActivity {
     private EditText userEdit, passEdit;
@@ -29,7 +30,7 @@ public class Login extends AppCompatActivity {
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(this,R.color.black));
+//        window.setStatusBarColor(ContextCompat.getColor(this,R.color.black));
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
