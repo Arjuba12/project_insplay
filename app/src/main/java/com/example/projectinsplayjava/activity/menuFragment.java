@@ -1,6 +1,7 @@
 package com.example.projectinsplayjava.activity;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -23,9 +24,11 @@ import android.widget.ProgressBar;
 
 import com.example.projectinsplayjava.R;
 //import com.example.projectinsplayjava.adapter.MusicListAdapter;
+import com.example.projectinsplayjava.adapter.GenreAdapter;
 import com.example.projectinsplayjava.adapter.MusicAdapter;
 import com.example.projectinsplayjava.adapter.MusicListAdapter;
 import com.example.projectinsplayjava.adapter.SliderAdapter;
+import com.example.projectinsplayjava.adapter.TrendingAdapter;
 import com.example.projectinsplayjava.databinding.ActivityMainBinding;
 import com.example.projectinsplayjava.databinding.FragmentMenuBinding;
 import com.example.projectinsplayjava.domains.Items;
@@ -39,6 +42,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -49,12 +53,13 @@ import java.util.List;
 public class menuFragment extends Fragment {
     RecyclerView recyclerView;
     DatabaseReference databaseRef;
-    MusicAdapter adapter;
+    TrendingAdapter adapter;
     ArrayList<Music> itemsList;
 
     ViewPager2 viewPager2;
     Handler sliderHandler = new Handler();
     private FragmentMenuBinding binding;
+    private FragmentMenuBinding trendingBinding;
     private FirebaseDatabase database;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -110,24 +115,58 @@ public class menuFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentMenuBinding.inflate(getLayoutInflater());
+        binding = FragmentMenuBinding.bind(view);
 
+        displayMusic();
         initView();
         banner();
+        displayGenre();
 
-        recyclerView = view.findViewById(R.id.recyclerViewTop);
+
+    }
+
+    private void displayGenre() {
+        RecyclerView genreRecyclerView = binding.recyclerViewGenre;
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        genreRecyclerView.setLayoutManager(layoutManager);
+
+        // List of genres
+        ArrayList<String> genres = new ArrayList<>(Arrays.asList("hiphop", "pop", "rock", "trending", "dance", "jazz", "classical", "electronic", "reggae", "k-pop", "indie"));
+
+        GenreAdapter adapter = new GenreAdapter(genres, genre -> {
+            // Handle click, navigate to GenreFragment
+            GenreFragment genreFragment = new GenreFragment();
+
+            // Pass the selected genre to the GenreFragment
+            Bundle args = new Bundle();
+            args.putString("selectedGenre", genre);
+            genreFragment.setArguments(args);
+
+            // Replace the current fragment with GenreFragment
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frameLayout, genreFragment) // Adjust the container ID accordingly
+                    .addToBackStack(null)
+                    .commit();
+        });
+
+        genreRecyclerView.setAdapter(adapter);
+    }
+
+    public void displayMusic() {
+
+
+        recyclerView = binding.recyclerViewTop;
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
-        databaseRef = FirebaseDatabase.getInstance().getReference("music");
-
+        databaseRef = FirebaseDatabase.getInstance().getReference("trending");
 
         itemsList = new ArrayList<>();
-        adapter = new MusicAdapter(itemsList);
+        adapter = new TrendingAdapter(itemsList);
         recyclerView.setAdapter(adapter);
-
 
         databaseRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -137,7 +176,7 @@ public class menuFragment extends Fragment {
                     itemsList.add(music);
                     adapter.notifyDataSetChanged();
                 }
-                ProgressBar progressBar = view.findViewById(R.id.progressBarTop);
+                ProgressBar progressBar = binding.progressBarTop;
                 progressBar.setVisibility(View.GONE);
                 adapter.notifyDataSetChanged();
             }

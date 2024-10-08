@@ -44,8 +44,7 @@ public class searchFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
 
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_search, container, false);
-
+        View view = inflater.inflate(R.layout.search_fragment, container, false);
         recyclerView = view.findViewById(R.id.recyclerViewRekomend);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -112,12 +111,14 @@ public class searchFragment extends Fragment {
             filteredList.addAll(items);
         } else {
             for (Music music : items) {
-                if (music.getTitle().toLowerCase().contains(text.toLowerCase())) {
+                // Ensure title is not null before calling toLowerCase
+                if (music != null && music.getTitle() != null &&
+                        music.getTitle().toLowerCase().contains(text.toLowerCase())) {
                     filteredList.add(music);
                 }
             }
 
-            if (filteredList.isEmpty() && !text.isEmpty()) {
+            if (filteredList.isEmpty()) {
                 // Handle empty list
                 Toast.makeText(getContext(), "No Data Found", Toast.LENGTH_SHORT).show();
             } else {
@@ -125,7 +126,6 @@ public class searchFragment extends Fragment {
             }
         }
         musicAdapter.setFilteredList(filteredList);
-
     }
 
 }

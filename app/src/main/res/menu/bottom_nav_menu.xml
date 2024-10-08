@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="home"
+    <item android:title="Home"
         android:icon="@drawable/baseline_home_24"
         android:id="@+id/home"/>
-    <item android:title="search"
+    <item android:title="Search"
         android:icon="@drawable/baseline_search_24"
         android:id="@+id/search"/>
-    <item android:title="colections"
+    <item android:title="Koleksi"
         android:icon="@drawable/baseline_collections_24"
-        android:id="@+id/collections"/>
+        android:id="@+id/collections"
+        />
 </menu>
